@@ -1,0 +1,24 @@
+"use client"
+import React, { useEffect, useState } from "react";
+import GetNotes from "../components/get-notes/get-notes";
+import Loader from "@/themes/components/loader/loader";
+
+const GetNotesView: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading time (for demo purposes, you can remove this in production)
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1500); // Simulate a loading state for 2 seconds
+  }, []);
+  return (
+    <>
+      {loading ? (
+        <Loader /> // Show the loader while loading
+      ) : (
+        <GetNotes />
+      )}
+    </>
+  );
+};
+
+export default GetNotesView;

@@ -1,0 +1,20 @@
+.notesTable {
+    width: 70%;
+    box-shadow: 1px 10px 100px rgba(0, 0, 0, 0.188);
+    border-radius: 10px;
+    background-color: white;
+    
+  }
+
+  
+  @media (max-width:786px){
+    .notesTable {
+        width: 100%;
+        padding: 0px 10px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .tableClass{
+        min-width: 700px;
+    }
+  }

@@ -1,0 +1,219 @@
+/* General Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 1); // Default solid background
+  color: rgb(0, 0, 0);
+  padding: 15px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  transition: background 0.3s ease-in-out; // Smooth transition for background change
+  box-shadow: 1px 1px 50px #05005a69;
+}
+
+/* Transparent Navbar when Scrolled */
+.scrolled {
+  background: rgba(255, 255, 255, 0); // Transparent background when scrolled
+  box-shadow: 0px 0px 0px #05005a;
+  .navLinks a{
+    color: #ffffff;
+  }
+  .logo {
+    
+    color: #ffffff;
+  }
+}
+
+/* Navbar Container */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.iconImage{
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  gap: 8px;
+  letter-spacing: 3px;
+  color: #05005a;
+
+}
+
+/* Desktop Navigation Links */
+.navLinks {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.navLinks li {
+  cursor: pointer !important;
+  font-size: 1.1rem;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #05005a;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.navLinks a:hover {
+  color: #1dbbff;
+}
+
+/* Get Notes Button */
+.getNotes button {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.getNotes button:hover {
+  background: #f1f1f1;
+}
+
+/* Mobile Toggle Button */
+.menuToggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Sidebar (Mobile Navigation) */
+.sidebar {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.sidebar ul li {
+  padding: 12px 0;
+}
+
+.sidebar a {
+  color: #2f0081;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sidebar a:hover {
+  color: #dfe6e9;
+}
+
+
+
+/* Sidebar Get Notes Button */
+.getNotesSidebar {
+  background: white;
+  color: #003063;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.getNotesSidebar:hover {
+  background: #f1f1f1;
+}
+/* Responsive Design */
+@media (min-width: 769px) and (max-width: 1050px) {
+  .navLinks{
+    gap: 15px;
+  }
+  .navLinks a {
+    font-size: 13px;
+  
+  }
+  
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scrolled {
+    background: rgba(255, 255, 255, 1); // White background when not scrolled
+    .logo {
+    
+      color: #05005a;
+    }
+    
+  }
+  .iconImage{
+    background: rgba(255, 255, 255, 0); // Transparent background when scrolled
+  }
+  .navbar:not(.scrolled){
+    background: rgba(255, 255, 255, 0.56); // Transparent background when scrolled
+    backdrop-filter: blur(10px); // Blurred background effect
+    
+  }
+  .navbar {
+    padding: 15px 20px;
+  }
+  .navLinks {
+    display: none;
+  }
+  .menuToggle {
+    display: flex;
+    color: #05005a;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    &:hover{
+      background-color: transparent;
+      color: #05005a;
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+      ;
+    }
+  }
+  .sidebar a {
+    text-decoration: none;
+    color: #05005a;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 368px) {
+  .sidebar {
+    width: 100%;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+}

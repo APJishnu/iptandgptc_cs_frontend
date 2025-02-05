@@ -1,0 +1,226 @@
+/* Important Updates Section */
+.updatesSection {
+  padding: 60px 0px;
+  background: #ffffff;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.363);
+}
+
+.header {
+  padding-top: 40px;
+}
+
+/* Section Title */
+.sectionTitle {
+  padding: 20px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #2f0081;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+/* Category Buttons */
+.categoryButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.categoryButton {
+  width: 100%;
+  max-width: 180px;
+  padding: 10px 20px!important;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none!important;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 0px;
+
+}
+
+.categoryButton.active {
+ 
+  background: #190089!important;
+  color: white!important;
+}
+
+
+.categoryButton:not(.active) {
+  background: #f0f0f0!important;
+  color: #05005a!important;
+}
+
+/* Scrollable Container */
+.scrollContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px; /* Add padding for mobile */
+}
+
+.updatesContainer {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Changed to auto for better mobile support */
+  scroll-behavior: smooth;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 100%;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.updatesContainer::-webkit-scrollbar {
+  height: 8px;
+  display: none;
+}
+
+.updatesContainer::-webkit-scrollbar-thumb {
+  background-color: #7dd4ff;
+  border-radius: 10px;
+}
+
+/* Update Card */
+.updateCard {
+  background: #fff;
+  width: 100%; /* Default width for mobile */
+  min-width: 100%; /* Ensure cards take full width on mobile */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-bottom: 2px solid rgb(0, 0, 126);
+
+  @media (min-width: 768px) {
+    width: 600px; /* Desktop width */
+    min-width: 600px; /* Ensure cards maintain width for scrolling */
+  }
+}
+
+.updateCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border-bottom: 0px solid rgb(0, 0, 126);
+  background: #190089;
+
+  .cardTitle {
+    color: #ffffff;
+  }
+
+  .cardDate {
+    color: #c9c9c9;
+  }
+  .cardDescription{
+    color: #fcfcfc;
+  }
+}
+
+/* Card Content */
+.cardContent {
+  padding: 15px;
+  text-align: left;
+  width: 100%;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.cardDate {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-weight: 200;
+}
+
+.readMore {
+  font-size: 0.9rem;
+  color: #638fbf;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.readMore:hover {
+  text-decoration: underline;
+}
+
+/* Scroll Buttons */
+.scrollButtons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+}
+
+.scrollArrow {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  color: #05005a;
+  transition: color 0.3s ease;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+}
+
+.scrollArrow:hover {
+  color: #7dd4ff;
+}
+
+.viewAllButton {
+  background-color: #190089;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+@media (max-width:768px){
+  /* Important Updates Section */
+.updatesSection {
+  padding: 20px 20px;
+  
+}
+.sectionTitle {
+  font-size: 1.4rem;
+}
+.categoryButton {
+  width: 100%;
+  max-width: 180px;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.scrollContainer {
+  padding: 0 0px; /* Add padding for mobile */
+}
+.scrollButtons {
+
+  margin-top: 5px;
+  padding: 0px;
+  padding-bottom: 20px;
+}
+
+}

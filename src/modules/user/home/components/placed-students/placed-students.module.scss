@@ -1,0 +1,258 @@
+.placedStudents {
+  padding-top: 60px;
+}
+.container{
+  padding: 0px 0;
+  text-align: center;
+  background-image: url("/student/graduated-grp.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.overlay{
+  position: absolute;
+  background-color: #00000098;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.sectionTitle {
+  position: relative;
+  padding: 20px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #2f0081;
+  letter-spacing: 1px;
+  background-color: #f0f0f0c3;
+  width: 100%;
+}
+
+.sectionDesc {
+  position: relative;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.arrowDiv {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.arrowButton {
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  border: 0px solid rgb(4, 0, 72);
+  color: white;
+}
+
+.cardContainer {
+  max-width: 800px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+}
+.updateCard {
+  padding: 10px;
+  width: 100%;
+  animation: slideInOut 4s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  border-radius: 40px;
+  @keyframes slideInOut {
+    0% {
+      transform: translateX(100%); /* Starts from right */
+      opacity: 0;
+    }
+    10% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    60% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(-100%); /* Move out to the left */
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 600px;
+    min-width: 600px;
+  }
+}
+
+.updateCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+  // .studentName {
+  //   color: #ffffff;
+  // }
+
+  // .placedAt,
+  // .batch {
+  //   color: #e0e0e0;
+  // }
+}
+
+.profilePic {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .image{
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+
+.details{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.studentName {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #000000;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.studentDescription{
+  color: rgb(0, 0, 0);
+  font-weight: 100;
+
+}
+.studentPlacedDiv{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.placedAt,
+.batch {
+  font-size: 0.9rem;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.congratsContainer {
+  position: relative;
+  text-align: center;
+  background: #ffffff;
+  padding: 20px;
+  margin-top: 30px;
+  width: 100%;
+ 
+}
+
+.congratsTitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.congratsMessage {
+  font-size: 0.8rem;
+  color: #5e5e5e;
+  line-height: 1.5;
+  max-width: 850px;
+  margin: 0 auto 10px;
+  font-weight: 300;
+}
+
+.congratsFooter {
+  font-size: 1.1rem;
+  color: #039486;
+}
+
+@media (max-width: 768px) {
+  .placedStudents {
+    padding-top:70px;
+  }
+  .sectionTitle{
+    font-size: 1.4rem;
+  }
+  .carouselWrapper {
+    gap: 10px;
+  }
+
+  .arrowDiv {
+    width: 40px;
+    height: 40px;
+  }
+  .arrowButton {
+    padding: 0px;
+  }
+
+  .cardContainer {
+    width: 100%;
+  }
+  .congratsTitle {
+    font-size: 1rem;
+  }
+  
+}
+
+@media (max-width: 468px) {
+  .carouselWrapper {
+    flex-direction: row;
+    padding: 0 20px;
+  }
+
+  .updateCard {
+    width: 100%;
+  }
+}

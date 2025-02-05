@@ -1,0 +1,149 @@
+.container {
+    padding-bottom: 40px;
+
+  }
+
+  .banner {
+    background: #2f0081;
+    color: white;
+    padding: 180px 80px;
+    padding-top: 95px;
+    position: absolute;
+    letter-spacing: 2px;
+    width: 100%;
+    h1{
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 2.4rem;
+    }
+  }
+  .contactContent{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    padding-top: 180px;
+    padding-bottom: 40px;
+    position: relative;
+  
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  
+  .map {
+    
+    width: 100%;
+    height: 400px;
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
+  }
+  
+  .iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
+  }
+  
+  .formContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 1px 2px 110px rgba(74, 74, 74, 0.174);
+    .flexInputs{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        .formItem{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+      color: #2f0081;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+     text-align: center;
+
+    }
+  
+    p {
+      color: #666;
+      margin-bottom: 10px;
+      font-weight: 200;
+      text-align: center;
+      font-size: 14px;
+
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+  
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+  
+      textarea {
+        min-height: 50px;
+        resize: vertical;
+      }
+    }
+  }
+  
+  .submitButton {
+    width: 100%;
+    height: 40px;
+    padding: 10px!important;
+    font-size: 1rem;
+    background-color: #14006d!important;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  
+    &:hover {
+      color: #fff!important;
+      background-color: #005bb5!important;
+    }
+  }
+  
+  @media (max-width:768px){
+    .banner {
+      padding: 100px 20px;
+      padding-top: 125px;
+      h1{
+        font-size: 1.4rem;
+      }
+    }
+   
+    .formContainer {
+        max-width: max-content;
+        h2 {
+          font-size: 1.2rem;
+          color: #2f0081;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          font-weight: 500;
+        }
+    }
+   
+  .contactContent {
+    flex-direction: column-reverse; // Form will come first, then the map
+  }
+ 
+  }
