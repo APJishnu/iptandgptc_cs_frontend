@@ -3,16 +3,10 @@ import React from "react";
 import { Button, Table } from "antd";
 import styles from "./notes-list.module.scss";
 import { DownloadOutlined } from "@ant-design/icons";
+import { Note } from "@/interfaces/get-notes/get-notes-interface";
 
 interface NotesListProps {
-    notes: { 
-      id: number; 
-      semester: string; 
-      subject: string; 
-      module: string; 
-      note: string; 
-      downloadLink: string; 
-    }[];
+    notes: Note[];
   }
 
 const NotesList: React.FC<NotesListProps> = ({ notes }) => {
