@@ -3,15 +3,8 @@ import React, { useState } from "react";
 import GetNotesForm from "../get-notes-form/get-notes-form";
 import NotesList from "../notes-list/notes-list";
 import styles from "./get-notes.module.scss";
+import { Note } from "@/interfaces/get-notes/get-notes-interface";
 
-interface Note {
-  id: number;
-  semester: string;
-  subject: string;
-  module: string;
-  note: string;
-  downloadLink: string;
-}
 
 interface Filters {
   semester: string[];

@@ -7,6 +7,72 @@
   font-family: 'Kanit', serif;
 }
 
+:root {
+  /* colors */
+  /* font colors */
+  --black: #000;
+  --logo-font-color: #e5e5e5;
+  --primary-font-color-light: #ffffff;
+  --primary-font-color-dark: #252525;
+  --secondary-font-color-light: #f4f4f4;
+  --secondary-font-color-dark: #6a6a6d;
+  --disabled-font-color: #c1c1c1;
+  --danger-primary-font-color: #e21e26;
+  --danger-secondary-font-color: #ce9d9d;
+  --success-font-color: #159117;
+  --grey-font-color: #686869;
+  --holiday-font-color:#133E87;
+
+  /* background */
+  --page-background: #f4f4f4;
+  --container-color: #ffffff;
+  --contanier-secondary-color: #FEFEFE;
+  --holiday-background:#FFF1CF;
+  --golden-background-color: #ffeac9;
+  --scrollbar-background: #e9e9e9;
+  --button-background-dark: #242424;
+  --nav-bar-background-color: #242424;
+  --disabled-button-background-dark: #6a6a6d;
+  --button-background-light: #ffffff;
+  --disabled-table-column-background: #ececec;
+  --danger-background-light-color: #f6e6e7;
+  --danger-background-dark-color: #e21e26;
+  --success-background-light-color: #f0ffe4;
+  --success-background-dark-color: #40a813;
+  --searchbar-background: #f0f0f0;
+  --disabled-count-background:#DDDDDD;
+  --active-count-background:#F0E7D6;
+  --filter-tab-bg-color:#F1EDE6;
+  --header-background-color:#EEEEEE;
+
+  /* others */
+  --primary-golden-color-light: #ffe3b8;
+  --primary-golden-color-medium: #fdb853;
+  --primary-golden-color-dark: #d4983f;
+
+  --secondary-golden-color-light: #f1ede6;
+  --secondary-golden-color-medium: #e9d6b9;
+
+  --scrollbar: #dbdbdb;
+  --navigation-arrow: #c1c1c1;
+  --input-box-outline: #afabac;
+
+  /* --------- */
+
+  /* font weights */
+  --main-heading-font-weight: 600;
+  --sub-heading-font-weight: 500;
+  --default-font-weight: 400;
+  --thin-font-weight: 300;
+
+  /* fontsizes */
+  --heading-1-size: 26px;
+  --heading-2-size: 18px;
+  --heading-3-size: 16px;
+  --default-font-size: 14px;
+  --small-font-size: 12px;
+}
+
 html,
 body {
   max-width: 100vw;

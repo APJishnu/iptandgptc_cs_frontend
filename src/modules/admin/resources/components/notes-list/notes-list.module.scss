@@ -1,0 +1,43 @@
+.notesListWrapper {
+  padding: 20px;
+  
+}
+
+.notesContent {
+  background: #fff;
+  padding: 0px;
+  border-radius: 8px;
+  overflow: hidden;
+  overflow-x: scroll;
+  :global(.ant-table-content){
+    border-radius: 10px!important;
+  }
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addNoteBtn {
+  border-color: rgb(35, 0, 148);
+  color: rgb(35, 0, 148);
+  &:hover {
+    border-color: rgb(35, 0, 148);
+    background-color: rgb(35, 0, 148) !important;
+    color: #fff !important;
+  }
+}
+.antTable{
+    border-radius: 10px;
+    min-width: 950px;
+}
+
+.customTabs {
+  .ant-tabs-tab {
+    font-weight: 500;
+  }
+}

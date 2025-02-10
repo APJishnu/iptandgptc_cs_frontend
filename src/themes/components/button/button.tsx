@@ -3,6 +3,7 @@ import { Button as AntButton } from "antd";
 import styles from "./button.module.scss";
 
 interface ButtonProps {
+  label?:string;
   children?: React.ReactNode;
   onClick?: () => void;
   className?: string;
@@ -16,6 +17,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
+  label,
   children,
   onClick,
   className = "",
@@ -38,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
       loading={loading}
       icon={icon}
     >
-      {children}
+      {children?children:label}
     </AntButton>
   );
 };

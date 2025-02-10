@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className={styles.bottom}>
           <p>
-            &copy; <a href="login.html">2024 Computer Science Department</a> | All Rights Reserved
+            &copy; <a href="/admin">2024 Computer Science Department</a> | All Rights Reserved
           </p>
           <p>Developed by <span className={styles.highlight}>CLOUD ELEVEN</span></p>
         </div>

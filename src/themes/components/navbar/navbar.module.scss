@@ -14,11 +14,10 @@
 .scrolled {
   background: rgba(255, 255, 255, 0); // Transparent background when scrolled
   box-shadow: 0px 0px 0px #05005a;
-  .navLinks a{
+  .navLinks a {
     color: #ffffff;
   }
   .logo {
-    
     color: #ffffff;
   }
 }
@@ -29,7 +28,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.iconImage{
+.iconImage {
   background-color: rgba(255, 255, 255, 1);
   border-radius: 50%;
   padding: 2px;
@@ -44,7 +43,6 @@
   gap: 8px;
   letter-spacing: 3px;
   color: #05005a;
-
 }
 
 /* Desktop Navigation Links */
@@ -90,52 +88,9 @@
 .getNotes button:hover {
   background: #f1f1f1;
 }
-
-/* Mobile Toggle Button */
-.menuToggle {
+.mobileSidebar {
   display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
 }
-
-/* Sidebar (Mobile Navigation) */
-.sidebar {
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  padding-top: 60px;
-  transition: 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-.sidebar ul li {
-  padding: 12px 0;
-}
-
-.sidebar a {
-  color: #2f0081;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
-.sidebar a:hover {
-  color: #dfe6e9;
-}
-
-
 
 /* Sidebar Get Notes Button */
 .getNotesSidebar {
@@ -154,58 +109,15 @@
 }
 /* Responsive Design */
 @media (min-width: 769px) and (max-width: 1050px) {
-  .navLinks{
+  .navLinks {
     gap: 15px;
   }
   .navLinks a {
     font-size: 13px;
-  
   }
-  
 }
+
 /* Responsive Design */
-@media (max-width: 768px) {
-  .scrolled {
-    background: rgba(255, 255, 255, 1); // White background when not scrolled
-    .logo {
-    
-      color: #05005a;
-    }
-    
-  }
-  .iconImage{
-    background: rgba(255, 255, 255, 0); // Transparent background when scrolled
-  }
-  .navbar:not(.scrolled){
-    background: rgba(255, 255, 255, 0.56); // Transparent background when scrolled
-    backdrop-filter: blur(10px); // Blurred background effect
-    
-  }
-  .navbar {
-    padding: 15px 20px;
-  }
-  .navLinks {
-    display: none;
-  }
-  .menuToggle {
-    display: flex;
-    color: #05005a;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-    &:hover{
-      background-color: transparent;
-      color: #05005a;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
-      ;
-    }
-  }
-  .sidebar a {
-    text-decoration: none;
-    color: #05005a;
-    font-weight: 400;
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-}
 
 @media (max-width: 368px) {
   .sidebar {
@@ -215,5 +127,107 @@
     list-style: none;
     padding: 0;
     text-align: center;
+  }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 0px;
+    transition: visibility 0.2s, opacity 0.2s ease-in-out;
+    .logo {
+      padding: 0px 20px;
+      color: #05005a;
+    }
+  }
+
+  .scrolled {
+    background: rgba(255, 255, 255, 1); // White background when not scrolled
+    .logo {
+      color: #05005a;
+    }
+  }
+
+  .iconImage {
+    background: rgba(255, 255, 255, 0); // Transparent background when scrolled
+  }
+
+  .navbar:not(.scrolled) {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  /* Always show the sidebar on mobile */
+  .mobileSidebar {
+    position: fixed;
+    padding: 0px 5px;
+    bottom: 0px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px -15px 10px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    z-index: 100;
+    display: flex;
+    /* Default state: visible */
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+  }
+
+  /* Hide Sidebar */
+  .mobileScrolled {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* Show Sidebar with Animation */
+  .mobileScrolledUp {
+    visibility: visible;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  /* Smooth fade-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Sidebar Items */
+  .mobileSidebar ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    list-style: none;
+  }
+
+  .mobileSidebar ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #969696;
+    cursor: pointer;
+  }
+
+  .mobileSidebar ul li span {
+    font-size: 0.55rem;
+    margin-top: 4px;
+  }
+
+  .mobileSidebar ul li:hover,
+  .mobileSidebar ul li.active {
+    color: #140097;
   }
 }
