@@ -1,18 +1,16 @@
-/* General Navbar */
 .navbar {
-  background: rgba(255, 255, 255, 1); // Default solid background
+  background: rgba(255, 255, 255, 1);
   color: rgb(0, 0, 0);
   padding: 15px 40px;
   position: fixed;
   width: 100%;
   z-index: 100;
-  transition: background 0.3s ease-in-out; // Smooth transition for background change
+  transition: background 0.3s ease-in-out;
   box-shadow: 1px 1px 50px #05005a69;
 }
 
-/* Transparent Navbar when Scrolled */
 .scrolled {
-  background: rgba(255, 255, 255, 0); // Transparent background when scrolled
+  background: rgba(255, 255, 255, 0);
   box-shadow: 0px 0px 0px #05005a;
   .navLinks a {
     color: #ffffff;
@@ -22,19 +20,12 @@
   }
 }
 
-/* Navbar Container */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.iconImage {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 50%;
-  padding: 2px;
-}
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -45,95 +36,85 @@
   color: #05005a;
 }
 
-/* Desktop Navigation Links */
+.iconImage {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  padding: 2px;
+}
+
 .navLinks {
   display: flex;
   gap: 25px;
   list-style: none;
   align-items: center;
-  justify-content: center;
   text-transform: uppercase;
+
+  li {
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #05005a;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #1dbbff;
+    }
+
+    &.active {
+      color: #0072eb;
+    }
+  }
 }
 
-.navLinks li {
-  cursor: pointer !important;
-  font-size: 1.1rem;
+.getNotes {
+  button {
+    background: white;
+    color: #007bff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #f1f1f1;
+    }
+
+    &.active {
+      color: #0072eb;
+      background: #f1f1f1;
+    }
+  }
 }
 
-.navLinks a {
-  text-decoration: none;
-  color: #05005a;
-  font-weight: 400;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-.navLinks a:hover {
-  color: #1dbbff;
-}
-
-/* Get Notes Button */
-.getNotes button {
-  background: white;
-  color: #007bff;
-  border: none;
-  padding: 8px 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.getNotes button:hover {
-  background: #f1f1f1;
-}
 .mobileSidebar {
   display: none;
 }
 
-/* Sidebar Get Notes Button */
-.getNotesSidebar {
-  background: white;
-  color: #003063;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-
-.getNotesSidebar:hover {
-  background: #f1f1f1;
-}
-/* Responsive Design */
 @media (min-width: 769px) and (max-width: 1050px) {
   .navLinks {
     gap: 15px;
-  }
-  .navLinks a {
-    font-size: 13px;
+    
+    a {
+      font-size: 13px;
+    }
   }
 }
 
-/* Responsive Design */
-
-@media (max-width: 368px) {
-  .sidebar {
-    width: 100%;
-  }
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-}
-/* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 0px;
     transition: visibility 0.2s, opacity 0.2s ease-in-out;
+    
     .logo {
       padding: 0px 20px;
       color: #05005a;
@@ -141,14 +122,15 @@
   }
 
   .scrolled {
-    background: rgba(255, 255, 255, 1); // White background when not scrolled
+    background: rgba(255, 255, 255, 1);
+    
     .logo {
       color: #05005a;
     }
   }
 
   .iconImage {
-    background: rgba(255, 255, 255, 0); // Transparent background when scrolled
+    background: rgba(255, 255, 255, 0);
   }
 
   .navbar:not(.scrolled) {
@@ -160,7 +142,6 @@
     display: none;
   }
 
-  /* Always show the sidebar on mobile */
   .mobileSidebar {
     position: fixed;
     padding: 0px 5px;
@@ -172,26 +153,49 @@
     height: 70px;
     z-index: 100;
     display: flex;
-    /* Default state: visible */
     visibility: visible;
     opacity: 1;
     transition: visibility 0.3s, opacity 0.3s ease-in-out;
+
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      list-style: none;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.8rem;
+        color: #969696;
+        cursor: pointer;
+
+        span {
+          font-size: 0.55rem;
+          margin-top: 4px;
+        }
+
+        &:hover,
+        &.active {
+          color: #140097!important;
+        }
+      }
+    }
   }
 
-  /* Hide Sidebar */
   .mobileScrolled {
     visibility: hidden;
     opacity: 0;
   }
 
-  /* Show Sidebar with Animation */
   .mobileScrolledUp {
     visibility: visible;
     opacity: 1;
     animation: fadeIn 0.3s ease-in-out;
   }
 
-  /* Smooth fade-in effect */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -201,33 +205,5 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  /* Sidebar Items */
-  .mobileSidebar ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    list-style: none;
-  }
-
-  .mobileSidebar ul li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.8rem;
-    color: #969696;
-    cursor: pointer;
-  }
-
-  .mobileSidebar ul li span {
-    font-size: 0.55rem;
-    margin-top: 4px;
-  }
-
-  .mobileSidebar ul li:hover,
-  .mobileSidebar ul li.active {
-    color: #140097;
   }
 }

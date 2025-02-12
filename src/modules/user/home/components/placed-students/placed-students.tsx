@@ -120,12 +120,14 @@ const PlacedStudents: React.FC = () => {
                   />
                 ) : (
                   <UserOutlined
+                    className={styles.userIcon}
                     style={{
                       fontSize: "60px",
                       backgroundColor: "#d0d0d0",
                       borderRadius: "50%",
                       padding: "10px",
                       color: "#000",
+                      
                     }}
                   />
                 )}

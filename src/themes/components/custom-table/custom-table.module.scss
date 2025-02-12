@@ -1,0 +1,43 @@
+.tableWrapper {
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  overflow-x: scroll; /* Use 'auto' to prevent unnecessary scrolling */
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    scrollbar-width: thin;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    width: 2px;
+    background: darkblue; /* Dark blue scrollbar */
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+    scrollbar-width: thin;
+
+  }
+}
+
+
+.tableClass {
+  min-width: 750px;
+}
+
+@media (max-width: 786px) {
+  .tableWrapper {
+      width: 100%;
+      padding: 0px 10px;
+      overflow-x: auto;
+      overflow-y: hidden;
+  }
+  .tableClass {
+      min-width: 700px;
+  }
+}

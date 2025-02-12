@@ -11,7 +11,7 @@ const Hero:React.FC = () => {
 
       {/* Content */}
       <div className={styles.content}>
-        <h1>Computer Science Department</h1>
+        <h1>Computer Engineering Department</h1>
         <p>Empowering future innovators with cutting-edge technology education and research opportunities</p>
       </div>
     </section>
