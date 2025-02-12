@@ -6,7 +6,7 @@ import styles from "./get-notes.module.scss";
 import { Note } from "@/interfaces/get-notes/get-notes-interface";
 import UseNotesServices from "../../services/get-notes-services/get-notes-services";
 import PaginationComponent from "@/themes/components/pagination-button/pagination-button";
-
+import Loader from "@/themes/components/loader/loader";
 
 interface Filters {
   semester: number[];
@@ -16,22 +16,28 @@ interface Filters {
 
 const GetNotes: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([]);
-  const [filters, setFilters] = useState<Filters>({ semester: [], subject: [], module: [] });
+  const [filters, setFilters] = useState<Filters>({
+    semester: [],
+    subject: [],
+    module: [],
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5); // Default page size
   const [totalNotes, setTotalNotes] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getFilteredNotes = async () => {
     try {
-
       setNotes([]);
-      
-      const response = await UseNotesServices().fetchNotes({ ...filters, page: currentPage, limit: pageSize });
+
+      const response = await UseNotesServices().fetchNotes({
+        ...filters,
+        page: currentPage,
+        limit: pageSize,
+      });
       if (response.status) {
         setNotes(response.data);
         setTotalNotes(response.total);
-        
       } else {
         console.error("Failed to fetch notes");
       }
@@ -42,9 +48,7 @@ const GetNotes: React.FC = () => {
     }
   };
 
-
   useEffect(() => {
-   
     getFilteredNotes();
   }, [filters, currentPage, pageSize]);
 
@@ -60,18 +64,23 @@ const GetNotes: React.FC = () => {
       <div className={styles.flexAlign}>
         <div className={styles.getNotesContent}>
           <GetNotesForm getNote={handleFilter} />
-          <div className={styles.tableContainer}>
-          <NotesList notes={notes} />
-          <PaginationComponent
-            total={totalNotes}
-            pageSize={pageSize}
-            current={currentPage}
-            onChange={(page) => setCurrentPage(page)}
-            loading={loading}
-            className={styles.pagination}
-          />
+          <div className={loading ?`${styles.tableContainerLoading}`:`${styles.tableContainer}`}>
+            {loading ? (
+              <Loader />
+            ) : (
+              <>
+                <NotesList notes={notes} />
+                <PaginationComponent
+                  total={totalNotes}
+                  pageSize={pageSize}
+                  current={currentPage}
+                  onChange={(page) => setCurrentPage(page)}
+                  loading={loading}
+                  className={styles.pagination}
+                />
+              </>
+            )}
           </div>
-
         </div>
       </div>
     </div>

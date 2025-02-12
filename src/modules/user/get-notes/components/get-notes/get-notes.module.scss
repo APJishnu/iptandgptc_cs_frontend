@@ -53,6 +53,18 @@
     background-color: white;
     box-shadow: 1px 10px 100px rgba(0, 0, 0, 0.188);
     border-radius: 10px;
+    justify-content: flex-start;
+
+  }
+  .tableContainerLoading{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 10px 100px rgba(0, 0, 0, 0.188);
+    border-radius: 10px;
+    justify-content: center;
+
   }
   .pagination{
     padding: 10px;
@@ -77,5 +89,10 @@
     .tableContainer{
       width: 100%;
 
+    }
+    .tableContainerLoading{
+      width: 100%;
+      background-color: white;
+      min-height: 300px;
     }
   }

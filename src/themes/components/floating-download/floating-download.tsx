@@ -9,6 +9,7 @@ import { message } from "antd";
 const FloatingDownload = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showButton, setShowButton] = useState(false); // State to control button visibility
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -25,6 +26,7 @@ const FloatingDownload = () => {
       console.log("beforeinstallprompt event fired!"); // Debugging
       e.preventDefault();
       setDeferredPrompt(e as any);
+      setShowButton(true); // Show the button when the prompt is available
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -36,27 +38,23 @@ const FloatingDownload = () => {
   }, []);
 
   const handleInstallClick = () => {
-    if (!isMobile) return;
+    if (!isMobile || !deferredPrompt) return;
 
-    if (deferredPrompt) {
-      console.log("Showing PWA install prompt...");
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult: any) => {
-        if (choiceResult.outcome === "accepted") {
-          message.success("You accepted the App install prompt.");
-        } else {
-          message.warning("You dismissed the App install prompt.");
-        }
-        setDeferredPrompt(null);
-      });
-    } else {
-      console.log("No install prompt available.");
-      message.warning("PWA install is not available.");
-    }
+    console.log("Showing PWA install prompt...");
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult: any) => {
+      if (choiceResult.outcome === "accepted") {
+        message.success("You accepted the App install prompt.");
+      } else {
+        message.warning("You dismissed the App install prompt.");
+      }
+      setDeferredPrompt(null);
+      setShowButton(false); // Hide button after interaction
+    });
   };
 
-  // Prevent rendering the button on desktop
-  if (!isMobile) return null;
+  // Prevent rendering the button if it's not mobile or PWA is unavailable
+  if (!isMobile || !showButton) return null;
 
   return (
     <motion.div

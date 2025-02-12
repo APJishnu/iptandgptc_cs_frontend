@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import StatsBar from "../status-bar/status-bar";
 import styles from "./about.module.scss";
