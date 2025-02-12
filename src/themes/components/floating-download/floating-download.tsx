@@ -1,4 +1,4 @@
-"use client";  // Ensure this is at the top
+"use client"; // Ensure this is at the top
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -9,21 +9,20 @@ import { message } from "antd";
 const FloatingDownload = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
-  // const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     // Check if the device is mobile
-    setIsMobile(window.innerWidth < 768); 
-
-    // Detect iOS (because iOS doesn't support beforeinstallprompt)
-    const userAgent = window.navigator.userAgent;
-    // setIsIOS(/iPhone|iPad|iPod/.test(userAgent));
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile(); // Run initially
+    window.addEventListener("resize", checkMobile);
 
     // Listen for the PWA install prompt (Android only)
     const handleBeforeInstallPrompt = (e: Event) => {
-      if (!isMobile) return;  // Ensure it's only available on mobile
+      console.log("beforeinstallprompt event fired!"); // Debugging
       e.preventDefault();
       setDeferredPrompt(e as any);
     };
@@ -31,28 +30,27 @@ const FloatingDownload = () => {
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () => {
+      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     };
   }, []);
 
   const handleInstallClick = () => {
-    if (!isMobile) return; // Prevent execution on desktop
-    // if (isIOS) {
-    //   message.info("On iOS, tap Share > Add to Home Screen to install.");
-    //   return;
-    // }
+    if (!isMobile) return;
 
     if (deferredPrompt) {
+      console.log("Showing PWA install prompt...");
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult: any) => {
         if (choiceResult.outcome === "accepted") {
-          message.success("User accepted the PWA install prompt.");
+          message.success("You accepted the App install prompt.");
         } else {
-          message.warning("User dismissed the PWA install prompt.");
+          message.warning("You dismissed the App install prompt.");
         }
         setDeferredPrompt(null);
       });
     } else {
+      console.log("No install prompt available.");
       message.warning("PWA install is not available.");
     }
   };

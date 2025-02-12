@@ -18,10 +18,6 @@
   user-select: none;
   z-index: 1000;
 
-  &:hover {
-    background-color: #0056b3;
-  }
-
   &:active {
     cursor: grabbing;
     transform: scale(0.95);

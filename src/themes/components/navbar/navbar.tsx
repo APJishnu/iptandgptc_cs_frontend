@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./navbar.module.scss";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { FileTextOutlined } from "@ant-design/icons";
 import Button from "../button/button";
 import Icons from "@/themes/icons/icons/icons";
@@ -11,9 +11,9 @@ import Icons from "@/themes/icons/icons/icons";
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("hero");
   const [lastScrollY, setLastScrollY] = useState(0);
   const router = useRouter();
+  const pathname = usePathname(); // Get current URL path
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +28,6 @@ const Navbar: React.FC = () => {
   }, [lastScrollY]);
 
   const scrollToSection = (id: string) => {
-    setActiveSection(id);
     if (window.location.pathname !== "/") {
       router.push("/");
       setTimeout(() => {
@@ -41,11 +40,8 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const handleNavigate = (id: string, path?: string) => {
-    if (path) {
-      router.push(path);
-      setActiveSection(id);
-    }
+  const handleNavigate = (path: string) => {
+    router.push(path);
   };
 
   return (
@@ -65,41 +61,41 @@ const Navbar: React.FC = () => {
 
           <ul className={styles.navLinks}>
             <li>
-              <a 
-                className={activeSection === "hero" ? styles.active : ""}
-                onClick={() => handleNavigate("hero", "/")}
+              <a
+                className={pathname === "/" ? styles.active : ""}
+                onClick={() => handleNavigate("/")}
               >
                 HOME
               </a>
             </li>
             <li>
-              <a 
-                className={activeSection === "about" ? styles.active : ""}
+              <a
+                className={pathname === "/#about" ? styles.active : ""}
                 onClick={() => scrollToSection("about")}
               >
                 ABOUT
               </a>
             </li>
             <li>
-              <a 
-                className={activeSection === "placements" ? styles.active : ""}
+              <a
+                className={pathname === "/#placements" ? styles.active : ""}
                 onClick={() => scrollToSection("placements")}
               >
                 PLACEMENT
               </a>
             </li>
             <li>
-              <a 
-                className={activeSection === "faculty" ? styles.active : ""}
+              <a
+                className={pathname === "/#faculty" ? styles.active : ""}
                 onClick={() => scrollToSection("faculty")}
               >
                 FACULTY
               </a>
             </li>
             <li>
-              <a 
-                className={activeSection === "contact-us" ? styles.active : ""}
-                onClick={() => handleNavigate("contact-us", "/contact-us")}
+              <a
+                className={pathname === "/contact-us" ? styles.active : ""}
+                onClick={() => handleNavigate("/contact-us")}
               >
                 CONTACT US
               </a>
@@ -107,8 +103,8 @@ const Navbar: React.FC = () => {
             <li className={styles.getNotes}>
               <Button
                 icon={<FileTextOutlined />}
-                onClick={() => handleNavigate("get-notes", "/get-notes")}
-                className={activeSection === "get-notes" ? styles.active : ""}
+                onClick={() => handleNavigate("/get-notes")}
+                className={pathname === "/get-notes" ? styles.active : ""}
               >
                 Get Notes
               </Button>
@@ -123,31 +119,31 @@ const Navbar: React.FC = () => {
         } ${isScrollingUp ? styles.mobileScrolledUp : styles.mobileScrolled}`}
       >
         <ul>
-          <li onClick={() => handleNavigate("hero", "/")}>
-            {activeSection === "hero" ? Icons.homeFilled : Icons.homeOutline}
+          <li onClick={() => handleNavigate("/")}>
+            {pathname === "/" ? Icons.homeFilled : Icons.homeOutline}
             <span>Home</span>
           </li>
           <li onClick={() => scrollToSection("about")}>
-            {activeSection === "about" ? Icons.aboutFilled : Icons.aboutOutline}
+            {pathname === "/#about" ? Icons.aboutFilled : Icons.aboutOutline}
             <span>About</span>
           </li>
           <li onClick={() => scrollToSection("placements")}>
-            {activeSection === "placements" ? Icons.careersFilled : Icons.careersOutline}
+            {pathname === "/#placements" ? Icons.careersFilled : Icons.careersOutline}
             <span>Placement</span>
           </li>
           <li onClick={() => scrollToSection("faculty")}>
-            {activeSection === "faculty" ? Icons.facultyFilled : Icons.facultyOutline}
+            {pathname === "/#faculty" ? Icons.facultyFilled : Icons.facultyOutline}
             <span>Faculty</span>
           </li>
-          <li onClick={() => handleNavigate("contact-us", "/contact-us")}>
-            {activeSection === "contact-us" ? Icons.contactFilled : Icons.contactOutline}
+          <li onClick={() => handleNavigate("/contact-us")}>
+            {pathname === "/contact-us" ? Icons.contactFilled : Icons.contactOutline}
             <span>Contact</span>
           </li>
           <li
             className={styles.getNotes}
-            onClick={() => handleNavigate("get-notes", "/get-notes")}
+            onClick={() => handleNavigate("/get-notes")}
           >
-            {activeSection === "get-notes" ? Icons.getNotesFilled : Icons.getNotesOutline}
+            {pathname === "/get-notes" ? Icons.getNotesFilled : Icons.getNotesOutline}
             <span>Get Notes</span>
           </li>
         </ul>
