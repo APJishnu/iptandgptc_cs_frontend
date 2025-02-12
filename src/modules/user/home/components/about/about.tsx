@@ -1,3 +1,4 @@
+import { useState } from "react";
 import StatsBar from "../status-bar/status-bar";
 import styles from "./about.module.scss";
 import Image from "next/image";
@@ -40,29 +41,48 @@ const stats = {
 };
 
 const About: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const fullDescription = `
+    Computer Engineering Department was established in 1989. We have an annual intake of 60 with additional 10% for lateral entry students.
+    Our laboratories are well equipped with new generation Computers and softwares to endure students with rapidly changing technologies.
+    The Department guides and molds the students to become eminent computer engineers who have sound technical and management skills.
+    Students are given opportunities to develop their personality along with technical skills.
+    Department highly promote and provides support to student's innovative ideas.
+    Department organizes Industrial visits at various Companies that have high turnover.
+    The students are also provided with various training to develop soft skill, communication skill, teamwork and lifelong learning skill as part of ASAP.
+    As the learning method is being outcome based which makes the transition effortless from institution to industry.
+    The Computer Engineering Association conducts and co-ordinates various programs like seminars, exhibitions etc.
+    In order to gather ideas from the industry. the association conducts various industry interaction programmes.
+    It also demands students to present papers on various topics during association meetings to make sure that they are actively participating.
+    Majority of students from this department are getting placements in good IT companies after completing their course of study.
+    We are maintaining a good relation with alumni which helps the students for better prospects and improvement of quality.
+  `;
+
   return (
     <section className={styles.about}>
       <div className={styles.bannerMainDiv}>
-      {/* Banner Section */}
-      <div className={styles.banner}>
-        <h1>Welcome to College of Excellence</h1>
-      </div>
-      
-      {/* About College Section */}
-      <div className={styles.aboutCollege}>
-        <div className={styles.innerAboutCollege}>
-        <div className={styles.textContainer}>
-          <h2>About College</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis explicabo veniam labore ratione illo vero voluptate a deserunt incidunt odio aliquam commodi blanditiis voluptas error non rerum temporibus optio accusantium!
-          </p>
-          <button className={styles.learnMore}>Learn More</button>
+        {/* Banner Section */}
+        <div className={styles.banner}>
+          <h1>Welcome to College of Excellence</h1>
         </div>
-        <div className={styles.imageContainer}>
-          <img src="/about/about-us.jpg" alt="College Library" className={styles.aboutImg}  />
+
+        {/* About College Section */}
+        <div className={styles.aboutCollege}>
+          <div className={styles.innerAboutCollege}>
+            <div className={styles.textContainer}>
+              <h2>About Computer Department</h2>
+              <p>
+                {isExpanded ? fullDescription : `${fullDescription.substring(0, 700)}...`}
+              </p>
+              <button className={styles.learnMore} onClick={() => setIsExpanded(!isExpanded)}>
+                {isExpanded ? "Show Less" : "Learn More"}
+              </button>
+            </div>
+            <div className={styles.imageContainer}>
+              <img src="/about/about-us.jpg" alt="College Library" className={styles.aboutImg} />
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
       </div>
 
       {/* Cards Section */}
@@ -77,12 +97,12 @@ const About: React.FC = () => {
           </div>
         ))}
       </div>
-      
+
       {/* Stats Section */}
-      <StatsBar 
-        students={stats.students} 
-        academicResult={stats.academicResult} 
-        alumni={stats.alumni} 
+      <StatsBar
+        students={stats.students}
+        academicResult={stats.academicResult}
+        alumni={stats.alumni}
       />
     </section>
   );

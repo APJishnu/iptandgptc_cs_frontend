@@ -6,17 +6,22 @@
   .banner {
     background: #2f0081;
     color: white;
-    padding: 180px 80px;
-    padding-top: 95px;
+    padding: 160px 20px;
+    padding-top: 80px;
+    font-size: 1.7rem;
     position: absolute;
     letter-spacing: 2px;
     width: 100%;
+    display: flex;
+    justify-content: center;
     h1{
+      width: 100%;
+      max-width:1350px;
       font-weight: 400;
       text-transform: uppercase;
-      font-size: 2.4rem;
     }
   }
+  
   .contactContent{
     display: flex;
     align-items: flex-start;

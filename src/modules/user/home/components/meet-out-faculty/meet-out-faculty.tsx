@@ -76,7 +76,7 @@ const MeetOurFaculty: React.FC = () => {
   return (
     <section className={styles.facultySection}>
       <h2 className={styles.sectionTitle}>Meet Our Qualified Teachers</h2>
-      <p className={styles.sectionSubtitle}>Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+      <p className={styles.sectionSubtitle}>Dedicated professionals committed to inspiring and guiding students with expertise, passion, and innovation.</p>
       <div className={styles.facultyContainer}>
         {facultyMembers.map((member) => (
           <Tooltip key={member.id} title={member.contactNo ? `Contact: ${member.contactNo}` : "No Contact Info"} placement="top">

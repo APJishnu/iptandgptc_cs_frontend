@@ -9,5 +9,5 @@ export interface AddNotesResponse{
     status:boolean;
     message:string;
     data:Note[];
-    errors:ValidationError[]
+    errors?:ValidationError[]
 }
