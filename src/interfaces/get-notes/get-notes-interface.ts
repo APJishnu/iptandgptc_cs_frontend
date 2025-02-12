@@ -22,6 +22,10 @@ export interface AddNoteData {
     data: Note[];
     total:number;
   }
+  export interface DeleteNoteResponse {
+    status: boolean;
+    message: string;
+  }
   
 
 

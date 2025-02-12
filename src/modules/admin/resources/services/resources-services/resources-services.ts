@@ -1,6 +1,6 @@
 
 import { AddNotesResponse } from "@/interfaces/admin/add-notes/add-notes-interfaces";
-import { AddNoteData, GetNotesResponse, SubjectWithModulesResponse } from "@/interfaces/get-notes/get-notes-interface";
+import { AddNoteData, DeleteNoteResponse, GetNotesResponse, SubjectWithModulesResponse } from "@/interfaces/get-notes/get-notes-interface";
 import http from "@/utils/http";
 
 /**
@@ -76,10 +76,29 @@ export default function UseResourcesServices() {
     }
   };
 
+   /**
+   * delete note from the backend.
+   * @returns {Promise<NotesResponse>} A promise resolving to the delete note.
+   */
+   const deleteNote = async (id: string): Promise<DeleteNoteResponse> => {
+    try {
+      const props : JSON = <JSON>(<unknown>{id});
+      const { body } = await http().post("/api/admin/delete-note" , props);
+      return {
+        status: body.status,
+        message: body.message,
+      };
+    } catch (error) {
+      console.error("Error deleting note:", error);
+      throw error;
+    }
+  };
+
   return {
    
     getSubjectsWithModules,
     addNote,
     getAllNotes,
+    deleteNote 
   };
 }
