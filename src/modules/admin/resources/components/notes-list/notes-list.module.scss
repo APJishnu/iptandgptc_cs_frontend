@@ -1,5 +1,5 @@
 .notesListWrapper {
-  padding: 20px;
+  padding: 20px 0px;
   
 }
 
@@ -39,5 +39,12 @@
 .customTabs {
   .ant-tabs-tab {
     font-weight: 500;
+  }
+}
+
+@media (max-width:768px){
+  .notesListWrapper {
+    padding: 20px 20px;
+    
   }
 }

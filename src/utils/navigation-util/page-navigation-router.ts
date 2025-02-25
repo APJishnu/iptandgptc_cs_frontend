@@ -1,4 +1,4 @@
-import Icons from "@/themes/icons/admin/icons/icons";  // Icons import
+import Icons from "@/themes/admin/icons/icons";   // Icons import
 
 interface NavigationLinks {
   path: string;
@@ -11,9 +11,9 @@ interface NavigationLinks {
 export class NavBarNavigationClass {
   public navigationLinks: NavigationLinks[] = [
     { path: "/admin", label: "Home", defaultIcon: "homeOutline", activeIcon: "homeFilled", collapsible: false },
-    { path: "/media", label: "Media Library", defaultIcon: "mediaOutline", activeIcon: "mediaFilled", collapsible: true },
-    { path: "/faculty", label: "Team Members", defaultIcon: "teamOutline", activeIcon: "teamFilled", collapsible: true },
-    { path: "/careers", label: "Career Opportunities", defaultIcon: "careersOutline", activeIcon: "careersFilled", collapsible: false },
+    { path: "/admin/media", label: "Media Library", defaultIcon: "mediaOutline", activeIcon: "mediaFilled", collapsible: true },
+    { path: "/admin/faculty", label: "Team Members", defaultIcon: "teamOutline", activeIcon: "teamFilled", collapsible: true },
+    { path: "/admin/careers", label: "Career Opportunities", defaultIcon: "careersOutline", activeIcon: "careersFilled", collapsible: false },
     { path: "/admin/resources", label: "Learning Resources", defaultIcon: "resourcesOutline", activeIcon: "resourcesFilled", collapsible: false },
   ];
 
