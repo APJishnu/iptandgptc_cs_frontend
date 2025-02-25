@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "./nav-bar.module.scss";
-import Icons from "@/themes/icons/admin/icons/icons";
+import Icons from "../../icons/icons"; 
 import NavBlock from "../nav-block/nav-block";
 import { NavBarNavigationClass } from "@/utils/navigation-util/page-navigation-router";
 import {
@@ -51,8 +51,8 @@ const NavBar = () => {
       
       <div className={`${styles.navBarWrapper} ${isMobileMenuOpen ? styles.mobileOpen : ""}  ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.logo}>
-          <span></span>
-          <h2>Studentlink.admin</h2>
+          <span><img className={styles.logoImg} src="/logo.png"/></span>
+          <h2>Studentlink<span>.admin</span></h2>
         </div>
 
         <div className={styles.navList}>

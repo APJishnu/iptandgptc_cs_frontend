@@ -12,7 +12,7 @@ const ModuleHeaderWrapper = () => {
   const pages = [
 
     { title: "Learning Resources", path: "/admin/resources", backButtonNeeded: false, actionButton: null},
-    { title: "Timesheet", path: "/time-sheet", backButtonNeeded: false, actionButton: null},
+    { title: "Career Opportunities", path: "/admin/careers", backButtonNeeded: false, actionButton: null},
     { title: "Approval Center", path: "/time-sheet/approval-center", backButtonNeeded: false, actionButton: null},
     { title: "Organization", path: "/organization", backButtonNeeded: false ,actionButton: { label: "Add Employee",  modalType: "addEmployeeModal" } },
     { title: "Project forecast", path: "/project-forecast", backButtonNeeded: false, actionButton: { label: "Add Project Forecast",  modalType: "addModal" }},

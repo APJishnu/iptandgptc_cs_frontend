@@ -4,7 +4,7 @@
     left: 0;
     bottom: 0;
     height: 100dvh;
-    background-color: var(--nav-bar-background-color);
+    background-color: rgb(0, 0, 78);
     padding: 32px;
     display: flex;
     flex-direction: column;
@@ -20,14 +20,24 @@
         column-gap: 12px;
 
         span{
-            width: 26px;
-            height: 26px;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            .logoImg{
+              width: 40px;
+              height: 40px;
+            }
         }
 
         h2{
             font-size: var(--heading-1-size);
             font-weight: var(--sub-heading-font-weight);
             color: var(--logo-font-color);
+            span{
+              font-size: 11px;
+              background-color: transparent;
+            }
         }
     }
 
