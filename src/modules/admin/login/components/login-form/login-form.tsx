@@ -24,11 +24,19 @@ const LoginForm: React.FC = () => {
     setLoading(true);
     try {
       const loginResult = await UseAdminLogin().adminLogin(values);
+      
+  const isProduction = true;
 
       if (loginResult.status) {
         // Success: Store token in cookies and redirect
         message.success(loginResult.message);
-        Cookies.set("admin_token", loginResult.token as string, { expires: 1 }); // Store token for 7 days
+         Cookies.set("admin_token", loginResult.token as string, {
+          expires: 1, // 1 day
+          secure: isProduction,
+          sameSite: isProduction ? "none" : "strict",
+          path: "/",
+          httpOnly: true,
+        });
         router.push("/admin");
       } else {
         // Handle validation errors on respective fields

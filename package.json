@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "5.66.9",
     "antd": "5.23.3",
     "axios": "1.7.9",
+    "cookie": "^1.0.2",
     "framer-motion": "12.4.2",
     "js-cookie": "3.0.5",
     "next": "14.2.5",
