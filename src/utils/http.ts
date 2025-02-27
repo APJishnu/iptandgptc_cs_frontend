@@ -3,6 +3,7 @@ import Axios, { AxiosRequestConfig } from "axios";
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const axioClient = Axios.create({
+  baseURL: backendUrl,
   headers: {
     "X-Requested-With": "XMLHttpRequest",
   },
