@@ -47,7 +47,7 @@ const http = () => {
         if (response.data == undefined || response.data == "") {
           response.data = {
             status: false,
-            message: "server error [001]",
+            message: response.data.message || "server error [001]",
           };
         }
         return response;
