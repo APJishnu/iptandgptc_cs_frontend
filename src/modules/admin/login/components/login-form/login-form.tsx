@@ -32,7 +32,7 @@ const LoginForm: React.FC = () => {
           expires: 1, // 1 day
           secure: true, // Required for production (HTTPS)
           sameSite: "none", // Must be "none" for cross-domain
-          path: "/",
+          httpOnly: true, // Prevents client-side access
         });
         router.push("/admin");
       } else {
