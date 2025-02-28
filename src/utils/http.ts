@@ -6,6 +6,7 @@ const axioClient = Axios.create({
   baseURL: backendUrl,
   headers: {
     "X-Requested-With": "XMLHttpRequest",
+    "Content-Type": "application/json",
   },
   withCredentials: true,
 });
