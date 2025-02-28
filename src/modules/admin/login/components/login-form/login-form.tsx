@@ -28,12 +28,17 @@ const LoginForm: React.FC = () => {
       if (loginResult.status) {
         // Success: Store token in cookies and redirect
         message.success(loginResult.message);
-        Cookies.set("admin_token", loginResult.token as string, { expires: 1 }); // Store token for 7 days
+        Cookies.set("admin_token", loginResult.token as string, {
+          expires: 1, // 1 day
+          secure: true, // Required for production (HTTPS)
+          sameSite: "none", // Must be "none" for cross-domain
+          path: "/",
+        });
         router.push("/admin");
       } else {
         // Handle validation errors on respective fields
         form.setFields(
-          loginResult.errors?.map((error:ValidationError) => ({
+          loginResult.errors?.map((error: ValidationError) => ({
             name: error.field,
             errors: [error.message],
           })) || []
@@ -65,7 +70,9 @@ const LoginForm: React.FC = () => {
           name="email"
           required
           placeholder="Enter your email"
-          rules={[{ type: "email", message: "Please enter a valid email address" }]}
+          rules={[
+            { type: "email", message: "Please enter a valid email address" },
+          ]}
         />
         <FormField
           className={styles.input}
