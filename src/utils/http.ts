@@ -7,6 +7,7 @@ const axioClient = Axios.create({
   headers: {
     "X-Requested-With": "XMLHttpRequest",
     "Content-Type": "application/json",
+
   },
   withCredentials: true,
 });
@@ -25,14 +26,16 @@ const http = () => {
     hasFile?: boolean
   ) => {
     // const fullUrl = `${url}`;
-    const fullUrl = `${backendUrl}${url}`;
+    const fullUrl = `${url}`;
     let config: AxiosRequestConfig = {
+      withCredentials: true, // Make sure it's here too
       headers: {
         "Content-Type": "application/json",
       },
     };
     if (hasFile) {
       config = {
+        withCredentials: true, // Make sure it's here too
         headers: {
           "content-type": "multipart/form-data",
         },

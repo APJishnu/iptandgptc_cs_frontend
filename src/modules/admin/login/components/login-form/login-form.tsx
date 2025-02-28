@@ -28,12 +28,12 @@ const LoginForm: React.FC = () => {
       if (loginResult.status) {
         // Success: Store token in cookies and redirect
         message.success(loginResult.message);
-        Cookies.set("admin_token", loginResult.token as string, {
-          expires: 1, // 1 day
-          secure: true, // Required for production (HTTPS)
-          sameSite: "none", // Must be "none" for cross-domain
-          path: "/",
-        });
+        // Cookies.set("admin_token", loginResult.token as string, {
+        //   expires: 1, // 1 day
+        //   secure: true, // Required for production (HTTPS)
+        //   sameSite: "none", // Must be "none" for cross-domain
+        //   path: "/",
+        // });
         router.push("/admin");
       } else {
         // Handle validation errors on respective fields
